@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name                = 'hhdpy',
-    version             = '0.1',
+    version             = '0.2',
     description         = 'hhdpy',
     author              = 'hhd2002',
     author_email        = 'h2d2002@naver.com',
