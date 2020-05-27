@@ -9,7 +9,7 @@ setup(
     author              = 'hhd2002',
     author_email        = 'h2d2002@naver.com',
     url                 = 'https://github.com/HyundongHwang/hhdpy',
-    download_url        = 'https://github.com/HyundongHwang/hhdpy/archive/0.0.tar.gz',
+    download_url        = 'https://github.com/HyundongHwang/hhdpy/archive/0.1.tar.gz',
     install_requires    =  [],
     packages            = find_packages(exclude = []),
     keywords            = ['hhdpy'],
