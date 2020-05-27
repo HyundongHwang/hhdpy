@@ -4,12 +4,12 @@ from setuptools import setup, find_packages
 
 setup(
     name                = 'hhdpy',
-    version             = '0.6',
+    version             = '0.7',
     description         = 'hhdpy',
     author              = 'hhd2002',
     author_email        = 'h2d2002@naver.com',
     url                 = 'https://github.com/HyundongHwang/hhdpy',
-    download_url        = 'https://github.com/HyundongHwang/hhdpy/archive/0.6.tar.gz',
+    download_url        = 'https://github.com/HyundongHwang/hhdpy/archive/0.7.tar.gz',
     install_requires    =  [],
     packages            = find_packages(),
     keywords            = ['hhdpy'],
