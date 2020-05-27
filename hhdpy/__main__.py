@@ -16,7 +16,7 @@ def main(args):
     parser.add_argument("--url", help="다운로드 속도측정 타겟 URL")
     options = parser.parse_args(args)
 
-    print("hhd main options.url[{}]".format(options.url))
+    print("hhd main 0.8 options.url[{}]".format(options.url))
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv[1:]))
