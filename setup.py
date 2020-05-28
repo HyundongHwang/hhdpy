@@ -1,28 +1,23 @@
 # -*- coding: utf-8 -*-
 
-from setuptools import setup, find_packages
+import setuptools
 
-setup(
-    name                = 'hhdpy',
-    version             = '0.8',
-    description         = 'hhdpy',
-    author              = 'hhd2002',
-    author_email        = 'h2d2002@naver.com',
-    url                 = 'https://github.com/HyundongHwang/hhdpy',
-    download_url        = 'https://github.com/HyundongHwang/hhdpy/archive/0.8.tar.gz',
-    install_requires    =  [],
-    packages            = find_packages(),
-    keywords            = ['hhdpy'],
-    python_requires     = '>=3',
-    package_data        = {},
-    zip_safe            = False,
-    classifiers         = [
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.2',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-    ],
+setuptools.setup(
+    name='hhdpy',
+    version='0.9.9',
+    description='hhd2002를 위한 파이썬 커맨드라인 유틸리티',
+    author='hhd2002',
+    author_email='h2d2002@naver.com',
+    url='https://github.com/HyundongHwang/hhdpy',
+    install_requires=[],
+    packages=setuptools.find_packages(),
+    keywords=['hhdpy', 'hhd2002', 'utility'],
+    python_requires='>=3',
+    package_data={},
+    zip_safe=False,
+    entry_points={
+        'console_scripts': [
+            'hhdpy = hhdpy.__main__:main',
+        ]
+    },
 )

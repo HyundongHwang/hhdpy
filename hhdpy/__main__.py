@@ -2,21 +2,32 @@
 
 import sys
 import argparse
+import hhdpy.typora
 
-USAGE = """
-USAGE :
-    python get_in_bw.py --url http://172.217.25.206/dl/android/studio/install/3.2.1.0/android-studio-ide-181.5056338-windows.exe
-"""
+USAGE = ""
+USAGE += hhdpy.typora.USAGE
 
-def main(args):
+
+def main():
+    args = sys.argv[1:]
+
+    if len(args) == 0:
+        print("\nUSAGE : {}".format(USAGE))
+        exit(0)
+
+    if args[0] == "typora_new_file":
+        hhdpy.typora.new_file(args[1])
+
     parser = argparse.ArgumentParser(
         epilog=USAGE,
         formatter_class=argparse.RawDescriptionHelpFormatter)
 
-    parser.add_argument("--url", help="다운로드 속도측정 타겟 URL")
-    options = parser.parse_args(args)
+    parser.add_argument("_", nargs="+", default=[])
+    parser.parse_args(args)
 
-    print("hhd main 0.8 options.url[{}]".format(options.url))
+    # parser.add_argument("arg0", help="arg0", type=str, default="")
+    # options = parser.parse_args(args)
+
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1:]))
+    sys.exit(main())
