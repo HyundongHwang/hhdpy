@@ -41,6 +41,10 @@ virtualenv v_hhdpy
 .\v_hhdpy\Scripts\activate.ps1
 ```
 
+```
+$ source v_hhdpy/bin/activate 
+```
+
 - virtualenv 비활성화
 
 ```
