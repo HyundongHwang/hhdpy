@@ -94,3 +94,25 @@ pip install -U hhdpy
 pip show hhdpy
 hhdpy
 ```
+
+### 기능
+
+#### typora_new_file
+
+- typora에 적합하게 `yyMMdd 실험결과 최종보고서.md` 파일을 생성해 줌
+
+```
+hhdpy typora_new_file "실험결과 최종보고서"
+```
+
+#### jupyter_py_to_ipynb
+
+- 현재디렉토리의 py파일을 모두 분석하여 
+- 주석부분은 markdown으로 나머지는 code로 분류하고
+- 이를 ipynb파일(jupyter 파일)로 변환해줌
+- 그리고 로컬에 설치된 jupyter를 이용하여 code부분들을 모두 실행하여 결과를 ipynb파일에 추가함  
+
+```
+hhdpy jupyter_py_to_ipynb
+```
+
