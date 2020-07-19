@@ -3,9 +3,11 @@
 import sys
 import argparse
 import hhdpy.typora
+import hhdpy.jupyter
 
 USAGE = ""
 USAGE += hhdpy.typora.USAGE
+USAGE += hhdpy.jupyter.USAGE
 
 
 def main():
@@ -17,6 +19,9 @@ def main():
 
     if args[0] == "typora_new_file":
         hhdpy.typora.new_file(args[1])
+
+    if args[0] == "jupyter_py_to_ipynb":
+        hhdpy.jupyter.py_to_ipynb()
 
     parser = argparse.ArgumentParser(
         epilog=USAGE,
