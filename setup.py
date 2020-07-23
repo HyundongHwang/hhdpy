@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name='hhdpy',
-    version='1.0.1',
+    version='1.0.4',
     description='hhd2002를 위한 파이썬 커맨드라인 유틸리티',
     author='hhd2002',
     author_email='h2d2002@naver.com',

@@ -74,6 +74,13 @@ pip install wheel
 pip install twine
 ```
 
+```
+sudo pip3 install setuptools
+sudo pip3 install wheel
+sudo pip3 install twine
+```
+
+
 - 버전업
     - `setup.py` 에서 버전 수정
 
@@ -85,9 +92,16 @@ python setup.py bdist_wheel
 twine upload dist/*.whl
 ```
 
+```
+rm -rf build dist *.egg-info
+python3 setup.py bdist_wheel
+twine upload dist/*.whl
+```
+
+
 - 테스트
 
-```powershell
+```
 # pypi.org의 캐시정책 때문에 2번정도 해야 성공한다.
 pip install -U hhdpy
 pip install -U hhdpy

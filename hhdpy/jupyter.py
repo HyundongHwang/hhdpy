@@ -7,6 +7,7 @@ import subprocess
 
 USAGE = """
 hhdpy jupyter_py_to_ipynb
+    --skip-if-existed
 """
 
 IPYNB_JSON = """
@@ -69,7 +70,12 @@ IPYNB_JSON = """
 """
 
 
-def py_to_ipynb():
+def py_to_ipynb(args):
+    skip_if_existed = False
+
+    if len(args) > 0 and args[0] == "--skip-if-existed":
+        skip_if_existed = True
+
     j_ipynb = json.loads(IPYNB_JSON)
     j_code = j_ipynb["cells"][0]
     j_md = j_ipynb["cells"][1]
@@ -81,11 +87,16 @@ def py_to_ipynb():
 
     for fileName in os.listdir(cwd):
         if fileName.endswith(".py"):
-
             pyFullFilePath = os.path.join(cwd, fileName)
+            ipynbFullPath = os.path.join(cwd, fileName.replace(".py", ".ipynb"))
+
+            if os.path.exists(ipynbFullPath) and skip_if_existed == True :
+                print("{} already existed ... skip!!!".format(ipynbFullPath))
+                continue
+
             pyFile = open(pyFullFilePath, "r", encoding="utf-8")
             j_ipynb_new = copy.deepcopy(j_ipynb)
-            curType = "none"  # none, code, md
+            curType = "none"  # code, md
             print("{} start ...".format(pyFullFilePath))
 
             while True:
@@ -94,27 +105,28 @@ def py_to_ipynb():
                 if not line:
                     break
 
-                if line.strip().startswith("#"):
+                if line.strip().startswith("#" * 10):
                     if curType != "md":
-                        curType = "md"
                         j_md_new = copy.deepcopy(j_md)
                         j_ipynb_new["cells"].append(j_md_new)
-
-                    if line.strip().startswith("#" * 10):
-                        j_md_new["source"].append("--- \n")
-                    else:
-                        j_md_new["source"].append(line.strip().strip("#"))
-
-                else:
+                    curType = "md"
+                elif not line.strip().startswith("#"):
                     if curType != "code":
-                        curType = "code"
                         j_code_new = copy.deepcopy(j_code)
                         j_ipynb_new["cells"].append(j_code_new)
+                    curType = "code"
 
+                if curType == "md":
+                    if line.strip().startswith("#"):
+                        if line.strip().startswith("#" * 10):
+                            j_md_new["source"].append("--- \n")
+                        else:
+                            j_md_new["source"].append("{} \n".format(line.strip().strip("#")))
+                elif curType == "code":
                     j_code_new["source"].append(line)
 
             pyFile.close()
-            ipynbFullPath = os.path.join(cwd, fileName.replace(".py", ".ipynb"))
+
             ipynbFile = open(ipynbFullPath, "w", encoding="utf-8")
             jsonStr = json.dumps(j_ipynb_new, indent=4, ensure_ascii=False)
             ipynbFile.write(jsonStr)
