@@ -14,4 +14,4 @@ def to_img_url(args):
     math = math.replace("+", "%2B")
     math = math.replace("σ", "\\sigma")
     url = "https://render.githubusercontent.com/render/math?math={}".format(math)
-    return url
+    print(url)
