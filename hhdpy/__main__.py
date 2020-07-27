@@ -3,10 +3,12 @@
 import sys
 import hhdpy.typora
 import hhdpy.jupyter
+import hhdpy.tex
 
 USAGE = ""
 USAGE += hhdpy.typora.USAGE
 USAGE += hhdpy.jupyter.USAGE
+USAGE += hhdpy.tex.USAGE
 
 
 def main():
@@ -21,6 +23,8 @@ def main():
         hhdpy.typora.new_file(args)
     elif cmd == "jupyter_py_to_ipynb":
         hhdpy.jupyter.py_to_ipynb(args)
+    elif cmd == "tex_to_img_url":
+        hhdpy.tex.to_img_url(args)
     else:
         print("\n'{}' is unknown command!!!\nUSAGE : {}".format(cmd, USAGE))
 

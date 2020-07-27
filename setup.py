@@ -4,7 +4,7 @@ import setuptools
 
 setuptools.setup(
     name='hhdpy',
-    version='1.0.4',
+    version='1.0.5',
     description='hhd2002를 위한 파이썬 커맨드라인 유틸리티',
     author='hhd2002',
     author_email='h2d2002@naver.com',
@@ -21,3 +21,6 @@ setuptools.setup(
         ]
     },
 )
+
+# for linux
+# rm -rf build dist *.egg-info; python3 setup.py bdist_wheel; twine upload dist/*.whl; git add *; git commit -m m; git push origin master;
