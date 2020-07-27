@@ -23,4 +23,14 @@ setuptools.setup(
 )
 
 # for linux
-# rm -rf build dist *.egg-info; python3 setup.py bdist_wheel; twine upload dist/*.whl; git add *; git commit -m m; git push origin master;
+# rm -rf build dist *.egg-info;
+# python3 setup.py bdist_wheel;
+# twine upload dist/*.whl;
+# ;
+# pip3 install -U hhdpy;
+# pip3 install -U hhdpy;
+# pip3 show hhdpy;
+# ;
+# git add *;
+# git commit -m m;
+# git push origin master;
