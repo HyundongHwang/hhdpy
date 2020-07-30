@@ -134,7 +134,7 @@ def py_to_ipynb(args):
             print("{} finish !!!".format(ipynbFullPath))
 
             try:
-                cmd = "jupyter nbconvert --to notebook --execute {} --inplace".format(ipynbFullPath)
+                cmd = "jupyter nbconvert --to notebook --execute {} --inplace --ExecutePreprocessor.timeout=86400".format(ipynbFullPath)
                 print("cmd[{}]".format(cmd))
                 res = subprocess.check_output(cmd, shell=True).decode("utf-8")
                 print("res[{}]".format(res))
