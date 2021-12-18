@@ -4,6 +4,7 @@ import sys
 import hhdpy.typora
 import hhdpy.jupyter
 import hhdpy.tex
+import hhdpy.and_clone_2_install
 
 USAGE = ""
 USAGE += hhdpy.typora.USAGE
@@ -25,8 +26,11 @@ def main():
         hhdpy.jupyter.py_to_ipynb(args)
     elif cmd == "tex_to_img_url":
         hhdpy.tex.to_img_url(args)
+    elif cmd == "and_clone_2_install":
+        hhdpy.and_clone_2_install.run(args)
     else:
         print("\n'{}' is unknown command!!!\nUSAGE : {}".format(cmd, USAGE))
+
 
 if __name__ == "__main__":
     sys.exit(main())
