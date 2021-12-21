@@ -26,13 +26,13 @@ git clone git@github.com:HyundongHwang/hhdpy.git
 cd hhdpy
 ```
 
-### virtualenv 설치, 설정
+### conda env 설정
 
-- virtualenv 설치
+- conda 환경 생성
 
 ```
-pip install virtualenv
-virtualenv v_hhdpy
+conda list
+conda create -n hhdpy python=3
 ```
 
 - virtualenv 활성화

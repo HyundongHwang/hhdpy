@@ -48,7 +48,7 @@ def run(args):
         if os.path.isdir(sub_dir):
             my_util.subprocess_check_output(f"cd '{sub_dir}'", sub_dir)
         else:
-            my_util.subprocess_check_output(f"git clone {ssh_url}", sub_dir)
+            my_util.subprocess_check_output(f"git clone {ssh_url}", pwd)
         my_util.subprocess_check_output(f"cd '{pwd}'", sub_dir)
 
     my_util.subprocess_check_output(f"cd '{pwd}'", pwd)
@@ -91,9 +91,6 @@ def run(args):
                 print(f"assembleDebug e:{e}")
 
         print(f"build !!! build_success:{build_success} app_dir:{app_dir}")
-
-    if not options.install:
-        return
 
     my_util.subprocess_check_output(f"cd '{pwd}'", pwd)
     my_util.subprocess_check_output(f"rm -rf apks", pwd)
